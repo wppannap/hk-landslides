@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From One in Ten to One in Four: Landslides in Hong Kong</title>
+<meta name="description" content="Four decades of landslide records show Hong Kong's natural hillsides slipping from 10% to 25% of all slides.">
+<style>
+:root{--ink:#1c1c1c;--mute:#666;--line:#d9d9d9;--clay:#b8683a;--clay-t:#97501f;--teal:#2f7586;--gold:#e6b92e;
+--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:60px}
+body{margin:0;background:#fff;color:var(--ink);font:400 1.2rem/1.75 var(--serif)}
+img{display:block;max-width:100%;height:auto}
+p{margin:0 0 1.3em}
+a{color:inherit}
+.txt{max-width:680px;margin:0 auto;padding:0 22px}
+.wide{max-width:1120px;margin:0 auto;padding:0 22px}
+.c{color:var(--clay-t)}.t{color:var(--teal)}
+.fine{font:400 .88rem/1.6 var(--sans);color:var(--mute)}
+
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);font:500 .85rem var(--sans)}
+nav .wide{display:flex;gap:26px;align-items:center;height:44px;overflow-x:auto;white-space:nowrap}
+nav b{margin-right:auto;font-weight:700}
+nav a{text-decoration:none;color:var(--mute)}nav a:hover{color:var(--ink)}
+
+.hero{background:linear-gradient(rgba(12,20,24,.84),rgba(12,20,24,.93)),url(img/all.webp) center/cover;color:#fff;padding:14vh 0 10vh}
+h1{font:700 clamp(2.7rem,8vw,5.8rem)/1.05 var(--serif);margin:0 0 .35em;letter-spacing:-.02em}
+.dek{font:italic 400 clamp(1.2rem,2.6vw,1.6rem)/1.45 var(--serif);max-width:26em;margin:0 0 2rem;color:#e4e9ea}
+.by{font:400 .9rem/1.7 var(--sans);color:#aab7bb}
+
+.lead p:first-child::first-line{font-weight:700}
+.lead{padding:64px 0 8px}
+
+h2{font:700 clamp(1.9rem,4vw,2.7rem)/1.15 var(--serif);margin:0 0 .6em}
+.part{padding:88px 0 0}
+.part .no{font:400 1rem var(--sans);color:var(--mute);margin-bottom:.4rem;display:block}
+blockquote{margin:1.8em 0;padding:0 0 0 22px;border-left:3px solid var(--teal);font:italic 400 1.6rem/1.4 var(--serif)}
+blockquote cite{display:block;margin-top:.5em;font:400 .85rem var(--sans);color:var(--mute);font-style:normal}
+
+figure{margin:2.4rem 0 0}
+.fig-t{font:700 1.15rem/1.35 var(--sans);margin:0 0 .8rem}
+.panel{border:1px solid var(--line);padding:12px;background:#fff}
+figcaption{margin-top:.7rem}
+.legend{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;margin-top:1.2rem;font:400 .95rem/1.5 var(--sans)}
+.legend ul{list-style:none;margin:0;padding:0}.legend li{margin:.25em 0;display:flex;gap:10px;align-items:center}
+.sw{width:14px;height:14px;border-radius:50%;flex:none}
+
+/* scrolly */
+.scrolly{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,420px);gap:5vw;align-items:start;margin-top:1rem}
+.stage{position:sticky;top:60px;height:calc(100vh - 80px);display:flex;flex-direction:column;gap:10px;order:2}
+.rail{display:flex;gap:16px;font:500 .9rem var(--sans)}
+.rail button{all:unset;cursor:pointer;color:var(--mute);padding-bottom:2px;border-bottom:2px solid transparent}
+.rail button[aria-current=true]{color:var(--ink);border-bottom-color:var(--ink)}
+.rail button:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+.frame{position:relative;flex:1;min-height:0;border:1px solid var(--line)}
+.frame img{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);object-fit:contain;opacity:0;transition:opacity .4s}
+.frame img.on{opacity:1}
+.readout{font:400 .95rem/1.4 var(--sans)}
+.readout b{font:700 1.5rem var(--serif);margin-right:.4em}
+.bar{height:10px;background:var(--clay);margin-top:8px}.bar i{display:block;height:100%;width:0;background:var(--teal);transition:width .5s}
+.step{min-height:75vh;display:flex;flex-direction:column;justify-content:center;opacity:.3;transition:opacity .35s}
+.step.on{opacity:1}
+.step h3{font:700 1.5rem/1.25 var(--serif);margin:0 0 .5em}
+.step:last-child{margin-bottom:8vh}
+
+/* stacked bars */
+.sb{display:grid;grid-template-columns:3.6em 1fr 8.5em;gap:12px;align-items:center;margin:0 0 10px;font:400 .9rem var(--sans)}
+.plot{position:relative;height:30px;background:repeating-linear-gradient(to right,var(--line) 0 1px,transparent 1px 25%)}
+.plot span{position:absolute;top:4px;bottom:4px;left:0}
+.axis{display:grid;grid-template-columns:3.6em 1fr 8.5em;gap:12px;font:400 .8rem var(--sans);color:var(--mute)}
+.axis div{display:flex;justify-content:space-between}
+.axis div span{width:0;display:flex;justify-content:center}.axis div span:last-child{justify-content:flex-end}
+.note{margin-top:.9rem}
+
+.pts p{margin-bottom:1em}
+.pts strong{font-family:var(--sans);font-size:1.05rem}
+footer{margin-top:96px;padding:36px 0 64px;border-top:1px solid var(--line)}
+footer p{margin-bottom:.8em}
+
+@media(max-width:820px){
+  body{font-size:1.1rem}
+  .scrolly{grid-template-columns:1fr;gap:0}
+  .stage{order:0;top:44px;height:52vh;background:#fff;padding:8px 0;z-index:5}
+  .step{min-height:58vh}
+  .sb,.axis{grid-template-columns:3em 1fr 6.4em;gap:8px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav><div class="wide"><b>Hong Kong landslides</b>
+<a href="#hills">The Hills</a><a href="#decades">The Decades</a><a href="#shift">The Shift</a><a href="#blind">The Blind Spots</a></div></nav>
+
+<header class="hero"><div class="wide">
+  <h1>Fourty Years of<br>Hong Kong Landslides</h1>
+</div></header>
+
+<section class="lead txt">
+  <p>On 18 June 1972, a rainstorm caused two landslides and killed 71 people in Sau Mau Ping and 67 more on Po Shan Road, respectively. Four years later, hillsides at Sau Mau Ping slid again, killing 18 people.</p>
+  <p>In 1977, the Hong Kong government built the Geotechnical Engineering Office (GEO) to ensure the safety of hillslopes.</p>
+  <p>Hong Kong is known as mountainous, with little flat land. We want to know whether man-made hillslopes or natural ones fail more frequently.</p>
+  <p>It is found that the failure of natural hillsides is around a quarter of all slides, and this ratio was 1/10 in the past.</p>
+</section>
+
+<section class="part" id="hills">
+  <div class="txt">
+    <span class="no">01</span><h2>The Hills</h2>
+    <blockquote>“Hong Kong has a large amount of mountain with limited flat lands.”<cite>40 years of landslip prevention</cite></blockquote>
+    <p>Each dot in the map below is one place where a hillside gave way. The government’s landslide record sorts every incident into one of two kinds: a <span class="c">man-made slope</span> or a <span class="t">natural hillside</span>.</p>
+    <p>Here is the whole record at once, split into five decades.</p>
+  </div>
+  <div class="wide">
+    <figure>
+      <h3 class="fig-t">Natural-hillside slides grew from 10% to 25% of Hong Kong’s landslides</h3>
+      <div class="panel"><img src="img/all.webp" alt="Five maps of Hong Kong, one per decade from the 1980s to the 2020s, showing landslide locations. Brown dots are man-made slopes, teal dots are natural hillsides, dot size shows volume. Teal dots become more common over time." width="2392" height="780"></div>
+      <div class="legend">
+        <img src="img/legend.webp" alt="Dot size legend: larger dots mean larger landslide volume" width="308" height="262" style="width:180px">
+        <ul>
+          <li><i class="sw" style="background:var(--clay)"></i>Man-made slope</li>
+          <li><i class="sw" style="background:var(--teal)"></i>Natural hillside</li>
+          <li><i class="sw" style="background:var(--gold)"></i>Largest single slide (Lai Ping Road, 1997)</li>
+        </ul>
+      </div>
+      <figcaption class="fine">Figure 1. Each dot is one landslide. Position is longitude (horizontal) and latitude (vertical). Colour shows the type of slope, size shows volume, and each panel shows the decade’s total and the share on natural hillsides.</figcaption>
+    </figure>
+  </div>
+  <div class="txt" style="margin-top:2rem"><p>In the 1980s it is hard to find natural hillsides on map. By the 2020s they are everywhere.</p></div>
+</section>
+
+<section class="part" id="decades">
+  <div class="txt"><span class="no">02</span><h2>Five Decades</h2><p>Scroll through the five decades one at a time.</p></div>
+  <div class="wide"><div class="scrolly">
+    <div class="stage" aria-live="polite">
+      <div class="rail" id="rail"></div>
+      <div class="frame">
+        <img class="on" src="img/d0.webp" alt="Map of 1980s landslides" width="449" height="780">
+        <img src="img/d1.webp" alt="Map of 1990s landslides" width="449" height="780">
+        <img src="img/d2.webp" alt="Map of 2000s landslides" width="449" height="780">
+        <img src="img/d3.webp" alt="Map of 2010s landslides" width="449" height="780">
+        <img src="img/d4.webp" alt="Map of 2020s landslides" width="449" height="780">
+      </div>
+      <div class="readout"><b id="rn"></b><span id="rp"></span><div class="bar"><i id="rb"></i></div></div>
+    </div>
+    <div>
+      <article class="step on" data-i="0"><h3>The 1980s</h3>
+        <p>Of 1,471 slides, only about one in ten happened on a natural hillside. Brown dots blanket the map. Teal ones are rare.</p></article>
+      <article class="step" data-i="1"><h3>The 1990s</h3>
+        <p>There were 3,604 slides, more than double the 1980s. Natural hillsides are still a minority at 13%.</p>
+        <p>The yellow dot is Lai Ping Road, 1997. The largest-scale landslide among all. The volume was about 100,000 cubic metres</p></article>
+      <article class="step" data-i="2"><h3>The 2000s</h3>
+        <p>Total slides reduced to 2,665, but the natural share doubles to 26%. In the lower-left corner a cluster of large teal dots appears near to Lantau Island.</p>
+        <p>A rainstorm on 7 June 2008 set off about 2,400 natural-terrain landslides on Lantau.</p></article>
+      <article class="step" data-i="3"><h3>The 2010s</h3>
+        <p>1,843 slides, about half the 1990s peak. The natural share eases to 22%.</p></article>
+      <article class="step" data-i="4"><h3>The 2020s</h3>
+        <p>1,217 slides up to now, 25% of them are natural. The decade is not over, so the count will grow.</p></article>
+    </div>
+  </div></div>
+</section>
+
+<section class="part" id="shift">
+  <div class="txt">
+    <span class="no">03</span><h2>The Shift</h2>
+    <p>We split each decade’s total by it's type, using the percentages to analysis the amount of their failure.</p>
+  </div>
+  <div class="wide"><figure>
+    <h3 class="fig-t">Both kinds of slide fell after the 1990s, but man-made slides fell faster</h3>
+    <div class="legend" style="margin:0 0 1rem"><ul style="display:flex;gap:28px"><li><i class="sw" style="background:var(--clay)"></i>Man-made slope</li><li><i class="sw" style="background:var(--teal)"></i>Natural hillside</li></ul></div>
+    <div class="panel"><img src="img/fig2.png" alt="Stacked bar chart of landslides per decade by slope origin" style="width:100%"></div>
+    <figcaption class="fine note">Figure 2. *The 2020s are still in progress.</figcaption>
+  </figure></div>
+  <div class="txt" style="margin-top:2rem">
+    <p>Both count reduced. Man-made slides drop from roughly 3,100 in the 1990s to roughly 900 so far in the 2020s, a fall of about 70%. Natural-hillside slides peak near 690 in the 2000s, then reduced to around 300.</p>
+    <h2 style="font-size:1.6rem;margin-top:1.6em">Three key findings</h2>
+    <div class="pts">
+      <p><strong>Natural hillsides are a growing share.</strong> From 10% in the 1980s to 25% in the 2020s, a 2.5-fold rise.</p>
+      <p><strong>The peak has passed.</strong> The 1990s recorded 3,604 slides. The 2010s recorded 1,843, about half.</p>
+      <p><strong>Lai Ping Road in 1997.</strong> At 100,000 cubic metres, is the largest landslide among more than ten thousand.</p>
+    </div>
+  </div>
+</section>
+
+
+<script>
+const D=[{l:'1980s',n:1471,p:10},{l:'1990s',n:3604,p:13},{l:'2000s',n:2665,p:26},{l:'2010s',n:1843,p:22},{l:'2020s',n:1217,p:25}];
+const fmt=x=>x.toLocaleString('en-US');
+// scrolly
+const steps=[...document.querySelectorAll('.step')],imgs=[...document.querySelectorAll('.frame img')],rail=document.getElementById('rail');
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+D.forEach((d,i)=>{const b=document.createElement('button');b.textContent=d.l;
+  b.onclick=()=>steps[i].scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});rail.appendChild(b)});
+function show(i){
+  imgs.forEach((m,k)=>m.classList.toggle('on',k===i));
+  steps.forEach((s,k)=>s.classList.toggle('on',k===i));
+  [...rail.children].forEach((b,k)=>b.setAttribute('aria-current',k===i));
+  rn.textContent=D[i].l;rp.textContent=fmt(D[i].n)+' slides, '+D[i].p+'% natural';rb.style.width=D[i].p+'%';
+}
+show(0);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)show(+e.target.dataset.i)}),{rootMargin:'-45% 0px -45% 0px'});
+steps.forEach(s=>io.observe(s));
+</script>
+</body>
+</html>
